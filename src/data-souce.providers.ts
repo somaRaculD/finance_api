@@ -5,10 +5,10 @@ const AppDataSource = [{
     useFactory: async () =>{
     const dataSource = new DataSource({
         type: "postgres",
-        host: "localhost",
-        port: 5432,
-        username: "postgres",
-        password: "jkh29uxg03",
+        host: "db-postgresql-nyc3-79668-do-user-14820194-0.b.db.ondigitalocean.com",
+        port: 2506,
+        username: "postgres_user_m",
+        password: "AVNS_NxV0LO3QjYqqE54ai6A",
         database: "finance",
         entities: [
             __dirname + "/entity/*{.ts,.js}"
