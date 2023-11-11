@@ -57,7 +57,7 @@ export class UserService {
             const user = await this.userRepository.findOne({ where: { email: createSession.email } });
             const passwordHashed = await hash(createSession.password, 12);
             const match = await compare(passwordHashed, user.password);
-            console.log("match", match)
+            console.log(passwordHashed, user.password)
             if(!match) {
                 throw new HttpException('Senha inválida!', HttpStatus.UNAUTHORIZED);
             }
