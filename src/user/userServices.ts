@@ -55,7 +55,7 @@ export class UserService {
     async createSession(createSession: SessionDto): Promise<Token> {
         try {
             const user = await this.userRepository.findOne({ where: { email: createSession.email } });
-            const passwordHashed = await hash(createSession.password, 12, (err, hash) => {
+            const passwordHashed:any = await hash(createSession.password, 12, (err, hash) => {
                 return hash;
             });
             const match = await compare(passwordHashed, user.password);
