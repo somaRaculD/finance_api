@@ -55,7 +55,7 @@ export class UserService {
     async createSession(createSession: SessionDto): Promise<Token> {
         try {
             const user = await this.userRepository.findOne({ where: { email: createSession.email } });
-            const passwordHashed:any = await hash(user.password, 12, (err, hash) => {
+            const passwordHashed:any = await hash(createSession.password, 12, (err, hash) => {
                 return hash;
             });
             console.log("passwordHashed: ",passwordHashed, user.password)
